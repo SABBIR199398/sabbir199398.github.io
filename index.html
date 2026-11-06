@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting to Sabbir's Portfolio</title>
+  <meta name="description" content="Redirecting to Sabbir's official portfolio website.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://sabbir199398.github.io/portfolio/">
+
+  <!-- Instant fallback for browsers with JavaScript disabled -->
+  <meta http-equiv="refresh" content="3; url=https://sabbir199398.github.io/portfolio/">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #090d16;
+      --card-bg: rgba(18, 24, 38, 0.72);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-glow: rgba(99, 102, 241, 0.25);
+      --primary: #6366f1;
+      --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --accent-glow: rgba(99, 102, 241, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow: hidden;
+      position: relative;
+      padding: 1.5rem;
+    }
+
+    /* Ambient Lighting Background Elements */
+    .ambient-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+      animation: float 14s ease-in-out infinite alternate;
+    }
+
+    .ambient-glow-1 {
+      top: -10%;
+      left: 15%;
+      background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+    }
+
+    .ambient-glow-2 {
+      bottom: -15%;
+      right: 15%;
+      background: radial-gradient(circle, #ec4899 0%, #8b5cf6 50%, transparent 75%);
+      animation-delay: -6s;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 20%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 20%, transparent 75%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Modern Glass Card */
+    .card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 480px;
+      background: var(--card-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 3rem 2.25rem;
+      text-align: center;
+      box-shadow: 
+        0 20px 50px -10px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+      animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      border-color: var(--card-border-glow);
+      box-shadow: 
+        0 24px 60px -10px rgba(0, 0, 0, 0.7),
+        0 0 40px -5px var(--accent-glow),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    /* Icon Container */
+    .icon-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1.75rem;
+    }
+
+    .icon-pulse {
+      position: absolute;
+      inset: -6px;
+      border-radius: 24px;
+      background: var(--primary-gradient);
+      opacity: 0.35;
+      filter: blur(10px);
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    .icon-box {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #818cf8;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .icon-box svg {
+      width: 38px;
+      height: 38px;
+      stroke-width: 1.75;
+      animation: rotateIcon 8s linear infinite;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.65rem;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+
+    .gradient-text {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.description {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Target URL Pill */
+    .url-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 100px;
+      font-size: 0.825rem;
+      color: #c7d2fe;
+      margin-bottom: 2rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      font-weight: 500;
+      word-break: break-all;
+    }
+
+    .url-badge:hover {
+      background: rgba(99, 102, 241, 0.12);
+      border-color: rgba(99, 102, 241, 0.35);
+      color: #ffffff;
+    }
+
+    .url-badge svg {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+      opacity: 0.75;
+    }
+
+    /* Progress Indicator */
+    .progress-section {
+      width: 100%;
+      margin-bottom: 1.75rem;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-subtle);
+      margin-bottom: 0.6rem;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--primary-gradient);
+      border-radius: 999px;
+      transition: width 0.05s linear;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+    }
+
+    /* Call To Action Button */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      width: 100%;
+      padding: 0.95rem 1.75rem;
+      border-radius: 16px;
+      background: var(--primary-gradient);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -5px rgba(99, 102, 241, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      filter: brightness(1.08);
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+    }
+
+    .cta-button svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.25s ease;
+    }
+
+    .cta-button:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* Footer Note */
+    .footer-note {
+      margin-top: 1.25rem;
+      font-size: 0.775rem;
+      color: var(--text-subtle);
+    }
+
+    .footer-note a {
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    .footer-note a:hover {
+      color: #fff;
+    }
+
+    /* Animations */
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        transform: translate(40px, 30px) scale(1.1);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.98);
+      }
+      50% {
+        opacity: 0.65;
+        transform: scale(1.06);
+      }
+    }
+
+    @keyframes rotateIcon {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes scaleIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(16px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 2.25rem 1.5rem;
+        border-radius: 22px;
+      }
+      h1 {
+        font-size: 1.45rem;
+      }
+      .icon-wrapper {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Ambient background glow & grid -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <div class="ambient-grid"></div>
+
+  <!-- Main Card -->
+  <main class="card" role="main">
+    <!-- Icon -->
+    <div class="icon-wrapper">
+      <div class="icon-pulse"></div>
+      <div class="icon-box">
+        <!-- Modern Compass / Orbit icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Title & Subtitle -->
+    <h1>Redirecting to <span class="gradient-text">Portfolio</span></h1>
+    <p class="description">
+      Taking you to Sabbir's official portfolio site to explore projects, skills, and experience.
+    </p>
+
+    <!-- Target URL Pill -->
+    <a href="https://sabbir199398.github.io/portfolio/" class="url-badge" title="Target URL">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+      </svg>
+      <span>sabbir199398.github.io/portfolio/</span>
+    </a>
+
+    <!-- Animated Progress Bar -->
+    <div class="progress-section">
+      <div class="progress-header">
+        <span>Automatic redirect</span>
+        <span id="countdown-text">in 2.5s</span>
+      </div>
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- Call to action button -->
+    <a href="https://sabbir199398.github.io/portfolio/" id="redirect-btn" class="cta-button">
+      <span>Continue to Portfolio</span>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+
+    <!-- Accessible Fallback Note -->
+    <p class="footer-note">
+      Not redirecting automatically? <a href="https://sabbir199398.github.io/portfolio/">Click here</a>
+    </p>
+  </main>
+
+  <!-- Redirection & Progress Logic -->
+  <script>
+    (function() {
+      const TARGET_URL = "https://sabbir199398.github.io/portfolio/";
+      const TOTAL_DURATION = 2500; // 2.5 seconds for a snappy but noticeable modern UX
+      const progressBar = document.getElementById("progress-bar");
+      const countdownText = document.getElementById("countdown-text");
+      const redirectBtn = document.getElementById("redirect-btn");
+      const progressBarContainer = document.getElementById("progress-bar-container");
+
+      const startTime = performance.now();
+      let hasRedirected = false;
+
+      function doRedirect() {
+        if (hasRedirected) return;
+        hasRedirected = true;
+        window.location.replace(TARGET_URL);
+      }
+
+      function updateProgress(currentTime) {
+        if (hasRedirected) return;
+
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / TOTAL_DURATION, 1);
+        const remainingSeconds = Math.max(0, ((TOTAL_DURATION - elapsed) / 1000)).toFixed(1);
+
+        if (progressBar) {
+          progressBar.style.width = (progress * 100) + "%";
+        }
+        if (progressBarContainer) {
+          progressBarContainer.setAttribute("aria-valuenow", Math.round(progress * 100));
+        }
+        if (countdownText) {
+          countdownText.textContent = remainingSeconds > 0 ? "in " + remainingSeconds + "s" : "redirecting...";
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(updateProgress);
+        } else {
+          doRedirect();
+        }
+      }
+
+      // Start animation loop
+      requestAnimationFrame(updateProgress);
+
+      // Instant redirection if button or link is clicked
+      if (redirectBtn) {
+        redirectBtn.addEventListener("click", function(e) {
+          e.preventDefault();
+          doRedirect();
+        });
+      }
+
+      // Safety fallback in case requestAnimationFrame is throttled in background tabs
+      setTimeout(doRedirect, TOTAL_DURATION + 500);
+    })();
+  </script>
+</body>
+</html>
